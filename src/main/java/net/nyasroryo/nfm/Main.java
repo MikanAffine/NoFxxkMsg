@@ -11,7 +11,7 @@ import static net.nyasroryo.nfm.util.LogUtils.*;
 
 /**
  * NoFxxkMsg插件主类
- * @author MistyField DevTeam
+ * @author NyasRoryo
  */
 public class Main extends JavaPlugin{
   
