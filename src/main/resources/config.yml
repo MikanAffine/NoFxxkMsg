@@ -1,0 +1,44 @@
+# NoFxxkMsg 配置文件
+
+# 反脏话设置
+antiSwear:
+  # 是否取消脏话发送?
+  reject: true
+  # 如果不取消,应把脏话替换成什么字符?
+  replacement: "[屏蔽]"
+
+# 惩罚
+punish:
+  # 类型
+  # KICK: 踢出
+  # BAN: 封禁
+  # CMD: 执行一条指令,指令中可以有玩家名变量%player%
+  type: "CMD"
+  # 多少次讲脏话会触发惩罚
+  # 0即禁用惩罚
+  count: 0
+  # 惩罚内容
+  # 如果是CMD类型惩罚,就是惩罚的指令
+  # KICK或BAN类型,就是惩罚的理由
+  value: "tell %player% §4不要讲脏话!"
+
+# 屏蔽规则
+rules:
+  # 一条示例规则
+  - 
+    # 脏话文本
+    text: "sb"
+    # 检测类型
+    # FULL: 消息完全等于该文本才认为是脏话
+    # FUZZY: 消息包含该文本就认为是脏话
+    # REGEX: 消息包含匹配该正则的文本就认为是脏话
+    # ENHANCED: 加强的FUZZY,可以匹配q;q'1@2$3##45-这种
+    # 除了FULL均大小写敏感..到时候加强
+    type: FULL
+  - 
+    text: "q群"
+    type: FUZZY
+  - 
+    # qwq表示很无奈
+    text: "q[^w]{0,3}q.*"
+    type: REGEX

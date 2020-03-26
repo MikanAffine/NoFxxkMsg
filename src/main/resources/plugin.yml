@@ -1,0 +1,10 @@
+name: "NoFxxkMsg"
+version: ${project.version}
+description: "msg check"
+author: "NyasRoryo"
+main: "net.nyasroryo.nfm.Main"
+prefix: "nfm"
+commands:
+  nfmreload:
+    usage: ""
+    description: ""
