@@ -39,6 +39,5 @@ rules:
     text: "q群"
     type: FUZZY
   - 
-    # qwq表示很无奈
-    text: "q[^w]{0,3}q.*"
+    text: "[Qq][^w]{0,3}[Qq].*"
     type: REGEX

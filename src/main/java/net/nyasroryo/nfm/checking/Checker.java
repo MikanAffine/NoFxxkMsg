@@ -61,4 +61,9 @@ public abstract class Checker {
     return msg;
   }
 
+  @Override
+  public String toString(){
+    return this.getClass().getSimpleName() + "(" + checker + ")";
+  }
+
 }

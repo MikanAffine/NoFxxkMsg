@@ -3,7 +3,7 @@ package net.nyasroryo.nfm.config;
 import java.io.File;
 import java.util.*;
 
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.nyasroryo.nfm.checking.Checker;
 
@@ -11,11 +11,12 @@ import static net.nyasroryo.nfm.util.Constants.*;
 
 public final class Config{
 
-  private static FileConfiguration config;
+  private static YamlConfiguration config;
 
   public static void init(){
-    if(!new File(dataFolder, "config.yml").exists()) main.saveDefaultConfig();
-    config = main.getConfig();
+    File f = new File(dataFolder, "config.yml");
+    if(!f.exists()) main.saveResource("config.yml", true);
+    config = YamlConfiguration.loadConfiguration(f);
 
     replacement = config.getString("antiSwear.replacement");
     reject = config.getBoolean("antiSwear.reject");
@@ -28,6 +29,7 @@ public final class Config{
     config.getMapList("rules").forEach(rule -> {
       checkers.add(Checker.getChecker((String) rule.get("type"), (String) rule.get("text")));
     });
+    System.out.println(checkers);
     Checker.setupChecker(checkers);
   }
 
